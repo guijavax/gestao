@@ -24,12 +24,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("com.amazonaws:aws-java-sdk-core:${awsSdkVersion}")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.6.7")
-	implementation("io.github.microutils:kotlin-logging:2.1.21")
+	implementation("org.springframework.data:spring-data-releasetrain:Lovelace-SR16")
+	implementation("com.github.derjust:spring-data-dynamodb:5.1.0")
+	implementation("javax.xml.bind:jaxb-api:2.3.1")
+	implementation("software.amazon.awssdk:dynamodb-enhanced:2.17.209")
 
-	runtimeOnly("org.postgresql:postgresql")
-
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {
