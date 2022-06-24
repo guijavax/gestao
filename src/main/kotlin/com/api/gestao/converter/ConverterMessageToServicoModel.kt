@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service
 @Service(value = "service")
 class ConverterMessageToServicoModel : GenericMessageToModel {
 
-    override fun converter(message: String) {
-        ObjectMapper().readValue(message, ServiceModel::class.java)
-    }
+    override fun converter(message: String) = ObjectMapper().readValue(message, ServiceModel::class.java)
+
 }

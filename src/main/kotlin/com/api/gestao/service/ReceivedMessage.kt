@@ -16,6 +16,6 @@ class ReceivedMessage {
 
     @SqsListener(value = ["salva_servico"], deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
     fun receiveMessage(message : String) {
-        println(message)
+        val serviceModel = convertService.converter(message)
     }
 }
