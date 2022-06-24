@@ -14,6 +14,9 @@ class ReceivedMessage {
     @Qualifier(value = "service")
     lateinit var convertService : GenericMessageToModel
 
+    @Autowired
+    lateinit var service : OperationService
+
     @SqsListener(value = ["salva_servico"], deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
     fun receiveMessage(message : String) {
         val serviceModel = convertService.converter(message)
