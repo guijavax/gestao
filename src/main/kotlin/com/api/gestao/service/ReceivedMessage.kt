@@ -1,6 +1,7 @@
 package com.api.gestao.service
 
 import com.api.gestao.generic.GenericMessageToModel
+import com.api.gestao.model.ServiceModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy
@@ -19,6 +20,8 @@ class ReceivedMessage {
 
     @SqsListener(value = ["salva_servico"], deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
     fun receiveMessage(message : String) {
-        val serviceModel = convertService.converter(message)
+        val serviceModel = convertService.converter(message) as ServiceModel
+        service.saveServico(serviceModel)
+        
     }
 }

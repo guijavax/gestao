@@ -10,6 +10,10 @@ import software.amazon.awssdk.enhanced.dynamodb.TableSchema
 @Repository
 class ServiceRepository(val dynamoDbEnhancedClient: DynamoDbEnhancedClient) {
 
+
+    fun saveServico(serviceModel: ServiceModel) {
+        getTable().putItem(serviceModel)
+    }
     private fun getTable() : DynamoDbTable<ServiceModel>
     = dynamoDbEnhancedClient.table("servicos", TableSchema.fromBean(ServiceModel::class.java))
 
